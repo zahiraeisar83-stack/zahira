@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zahira Rajabi | Portfolio</title>
+<link rel="stylesheet" href="fontawesome-free-7.0.1-web/css/all.min.css">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;user-select:none;-webkit-user-select:none}
+:root{--bg:#f5f7ff;--surface:#fff;--text:#1f2937;--muted:#64748b;--primary:#4f46e5;--primary-dark:#3730a3;--nav:#111827;--line:#e5e7eb;--shadow:0 5px 20px #00000012}
+html{scroll-behavior:smooth;scroll-padding-top:85px}
+body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);transition:background .3s,color .3s}
+body.dark{--bg:#0b1120;--surface:#172033;--text:#e5e7eb;--muted:#aab5c5;--primary:#a5b4fc;--primary-dark:#818cf8;--nav:#080d18;--line:#334155;--shadow:0 5px 20px #00000035}
+nav{min-height:70px;background:var(--nav);display:flex;justify-content:space-between;align-items:center;padding:12px 8%;position:sticky;top:0;z-index:1000}
+.logo{color:white;font-size:27px}
+.nav-right{display:flex;align-items:center;gap:20px}
+nav ul{display:flex;gap:25px;list-style:none}
+nav a{color:#fff;text-decoration:none;transition:.2s}
+nav a:hover,nav a.active{color:#7dd3fc}
+.nav-actions{display:flex;gap:10px}
+.icon-btn,.menu-btn{border:1px solid #64748b;background:transparent;color:white;border-radius:10px;width:40px;height:40px;cursor:pointer;font-size:17px;transition:transform .45s ease,background .35s ease,border-color .35s ease}.menu-btn i{display:inline-block;transition:transform .55s ease,opacity .3s ease}.menu-btn.open i{transform:rotate(180deg)}
+.menu-btn{display:none}
+.home{min-height:88vh;display:flex;justify-content:center;align-items:center;text-align:center;padding:60px 8%;background:var(--bg)}
+.home-text{max-width:800px}
+.home-text p{font-size:18px;margin-bottom:12px;color:var(--muted);line-height:1.7}
+.home-text h1{
+  font-family:Georgia, 'Times New Roman', serif;
+  font-size:clamp(52px,8vw,82px);
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--primary);
+  margin:8px 0 18px;
+  text-shadow:0 4px 18px #4f46e533;
+}
+.home-text h3{font-size:25px;margin-bottom:18px}
+#typed-role{color:var(--primary)}
+
+.name-box{
+  display:inline-block;
+  padding:18px 42px;
+  border:2px solid var(--primary);
+  border-radius:22px;
+  background:var(--surface);
+  box-shadow:0 10px 30px #4f46e522;
+  transition:transform .35s ease, box-shadow .35s ease;
+}
+.name-box:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 35px #4f46e533;
+}
+.name-box h1{margin:0}
+.btn{display:inline-block;margin-top:20px;padding:13px 25px;background:var(--primary);color:white;text-decoration:none;border-radius:25px;transition:.3s;border:0;cursor:pointer}
+.btn:hover{transform:translateY(-4px);background:var(--primary-dark)}
+.circle{width:300px;height:350px;border-radius:50%;background:var(--surface);display:flex;justify-content:center;align-items:center;box-shadow:var(--shadow);overflow:hidden}
+.circle img{width:100%;height:100%;object-fit:cover}
+section{padding:80px 8%}
+.title{text-align:center;font-size:35px;margin-bottom:40px;color:var(--primary)}
+.about-box,.contact-box,.contact-info,.skill,.project{background:var(--surface);box-shadow:var(--shadow);border:1px solid var(--line)}
+.about-box{max-width:750px;margin:auto;padding:35px;border-radius:20px;text-align:center;transition:.3s}
+.about-box:hover,.skill:hover,.project:hover{transform:translateY(-7px)}
+.about-box h3,.contact-box h3,.contact-info h3{margin-bottom:15px;font-size:25px;color:var(--primary)}
+.about-box p{line-height:1.9;font-size:17px;color:var(--muted)}
+.skills-container,.projects-container{display:flex;justify-content:center;gap:25px;flex-wrap:wrap}
+.skill{width:250px;padding:30px;text-align:center;border-radius:20px;transition:.3s}
+.skill-icon{font-size:48px;margin-bottom:15px;color:var(--primary)}
+.skill-icon.windows{color:#00a4ef}.skill-icon.office{color:#f25022}.skill-icon.html{color:#e34f26}.skill-icon.css{color:#1572b6}.skill-icon.js{color:#f7df1e;text-shadow:0 1px 2px #000}.skill-icon.sql{color:#00758f}
+.skill h3{color:var(--primary);font-size:23px;margin-bottom:12px}
+.skill p{line-height:1.6;color:var(--muted)}
+.project{width:280px;padding:28px;border-radius:20px;text-align:center;transition:.3s}
+.project-icon{font-size:48px;color:var(--primary);margin-bottom:15px}
+.project h3{margin-bottom:10px}
+.project p{color:var(--muted);line-height:1.6}
+.project a{display:inline-block;margin-top:16px;color:var(--primary);font-weight:bold;text-decoration:none}
+.project-tools{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:-15px 0 30px}
+.filter-btn{padding:9px 18px;border:1px solid var(--primary);border-radius:20px;background:transparent;color:var(--primary);cursor:pointer}
+.filter-btn.active,.filter-btn:hover{background:var(--primary);color:white}
+.contact-box{max-width:650px;margin:0 auto 30px;padding:35px;border-radius:20px;text-align:center}
+.contact-box>p{margin-bottom:25px;color:var(--muted)}
+.contact-box label{display:block;text-align:left;font-weight:bold;margin-bottom:8px;color:var(--primary)}
+.contact-box input,.contact-box textarea{width:100%;padding:14px;margin-bottom:7px;border:1px solid var(--line);border-radius:10px;outline:none;font-size:15px;background:var(--bg);color:var(--text)}
+.contact-box input:focus,.contact-box textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px #4f46e522}
+.contact-box textarea{height:140px;resize:vertical}
+.error{display:block;min-height:19px;text-align:left;color:#ef4444;font-size:13px;margin-bottom:12px}
+.contact-box button{width:100%;padding:13px;background:var(--primary);color:white;border:0;border-radius:12px;cursor:pointer;font-size:16px;font-weight:bold}
+.contact-info{max-width:650px;margin:auto;padding:35px;border-radius:20px}
+.contact-info p{display:flex;align-items:center;gap:15px;margin:18px 0;font-size:16px;color:var(--muted)}
+.contact-info p i{width:25px;color:var(--primary);font-size:20px;text-align:center}
+.copy-btn{margin-left:auto;border:0;background:transparent;color:var(--primary);cursor:pointer;font-size:18px}
+.social-icons{display:flex;gap:15px;margin-top:25px;padding-top:22px;border-top:1px solid var(--line)}
+.social-icons a{width:45px;height:45px;display:flex;justify-content:center;align-items:center;background:var(--bg);color:var(--primary);border:1px solid var(--line);border-radius:12px;text-decoration:none;font-size:21px;transition:.3s}
+.social-icons a:hover{transform:translateY(-5px);background:var(--primary);color:white}
+footer{background:var(--nav);color:white;text-align:center;padding:35px 8%;margin-top:35px}
+footer h3{font-size:27px;color:#7dd3fc;margin-bottom:10px}
+footer p{margin:12px 0;color:#cbd5e1}
+.footer-links{display:flex;justify-content:center;gap:25px;flex-wrap:wrap;margin:20px 0}
+.footer-links a{color:white;text-decoration:none}
+.footer-links a:hover{color:#7dd3fc}
+.copyright{font-size:14px;color:#aaa}
+#back-top{position:fixed;right:22px;bottom:22px;width:45px;height:45px;border:0;border-radius:50%;background:var(--primary);color:white;font-size:19px;cursor:pointer;display:none;z-index:900;box-shadow:var(--shadow)}
+#back-top.show{display:block}
+#form-status{margin-top:15px;font-weight:bold;line-height:1.5}
+@media(max-width:800px){
+ nav{padding:12px 5%}.menu-btn{display:block}
+
+ /* Smooth mobile menu animation */
+ nav ul{
+   position:absolute;top:70px;left:0;width:100%;background:var(--nav);
+   padding:0 8%;flex-direction:column;gap:18px;
+   overflow:hidden;max-height:0;opacity:0;visibility:hidden;
+   transform:translateY(-10px);
+   transition:max-height .65s ease, opacity .45s ease, transform .65s ease, padding .65s ease, visibility .65s ease;
+ }
+ nav ul.open{
+   max-height:400px;opacity:1;visibility:visible;transform:translateY(0);
+   padding:20px 8%;
+ }
+ .home{flex-direction:column-reverse;text-align:center;padding-top:45px}
+ .circle{width:240px;height:280px}
+ section{padding:65px 5%}
+}
+@media(max-width:480px){.logo{font-size:22px}.title{font-size:29px}.contact-box,.contact-info{padding:23px}.social-icons{gap:9px}.social-icons a{width:40px;height:40px}}
+</style>
+</head>
+<body>
+<nav>
+  <h2 class="logo">Zahira Rajabi</h2>
+  <div class="nav-right">
+    <ul id="nav-menu">
+      <li><a href="#home" class="active">Home</a></li><li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle dark mode" title="Dark mode"><i class="fas fa-moon"></i></button>
+      <button class="menu-btn" id="menu-toggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </div>
+</nav>
+
+<section id="home" class="home">
+  <div class="home-text">
+    <p>Hello, I'm</p>
+    <h1>Zahira Rajabi</h1>
+    <h3>I'm a <span id="typed-role">Web Design Student</span></h3>
+    <p>I am learning HTML, CSS and JavaScript, and creating useful websites.</p>
+    <a href="#projects" class="btn">View My Projects</a>
+  </div>
+</section>
+
+<section id="about">
+  <h2 class="title">About Me</h2>
+  <div class="about-box"><h3>Who Am I?</h3>
+    <p>My name is Zahira Rajabi. I am interested in web design and programming. I am learning HTML, CSS and JavaScript and practicing by creating different web projects.</p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="title">My Skills</h2>
+  <div class="skills-container">
+    <div class="skill"><div class="skill-icon"><i class="fab fa-windows"></i></div><h3>Windows</h3><p>Using Windows and managing basic computer tasks.</p></div>
+    <div class="skill"><div class="skill-icon"><i class="fab fa-microsoft"></i></div><h3>Microsoft Office</h3><p>Working with Microsoft Office applications.</p></div>
+    <div class="skill"><div class="skill-icon"><i class="fab fa-html5"></i></div><h3>HTML</h3><p>Creating the structure of websites.</p></div>
+    <div class="skill"><div class="skill-icon"><i class="fab fa-css3-alt"></i></div><h3>CSS</h3><p>Designing and styling beautiful websites.</p></div>
+    <div class="skill"><div class="skill-icon"><i class="fab fa-js"></i></div><h3>JavaScript</h3><p>Making websites interactive and useful.</p></div>
+    <div class="skill"><div class="skill-icon"><i class="fas fa-database"></i></div><h3>SQL</h3><p>Working with databases and writing basic SQL queries.</p></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="title">My Projects</h2>
+  <div class="project-tools">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="html">HTML & CSS</button>
+    <button class="filter-btn" data-filter="javascript">JavaScript</button>
+  </div>
+  <div class="projects-container">
+    <article class="project" data-category="html"><div class="project-icon"><i class="fas fa-id-card"></i></div><h3>CV Form</h3><p>A clean form layout for entering personal and professional information.</p><a href="#contact">Ask about this project</a></article>
+    <article class="project" data-category="javascript"><div class="project-icon"><i class="fas fa-list-check"></i></div><h3>To-Do List</h3><p>A task list concept for adding, completing and removing daily tasks.</p><a href="#contact">Ask about this project</a></article>
+    <article class="project" data-category="html"><div class="project-icon"><i class="fas fa-laptop"></i></div><h3>Portfolio Website</h3><p>A personal website to introduce skills, projects and contact details.</p><a href="#contact">Ask about this project</a></article>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="title">Contact Me</h2>
+  <div class="contact-box">
+    <h3>Get In Touch</h3><p>Have a project in mind or want to collaborate? Let's talk.</p>
+    <form id="contact-form" novalidate>
+      <label for="name">Name</label><input id="name" type="text" placeholder="Your Name">
+      <small class="error" id="name-error"></small>
+      <label for="email">Email</label><input id="email" type="email" placeholder="Your Email">
+      <small class="error" id="email-error"></small>
+      <label for="message">Message</label><textarea id="message" placeholder="Your Message"></textarea>
+      <small class="error" id="message-error"></small>
+      <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+      <p id="form-status" aria-live="polite"></p>
+    </form>
+  </div>
+  <div class="contact-info">
+    <h3><i class="fas fa-address-card"></i> Contact Info</h3>
+    <p><i class="fas fa-envelope"></i><span id="email-address">zahiraeisar83@gmail.com</span><button class="copy-btn" id="copy-email" title="Copy email" aria-label="Copy email"><i class="far fa-copy"></i></button></p>
+    <p><i class="fas fa-phone"></i>+93765875701</p>
+    <p><i class="fas fa-location-dot"></i>Afghanistan, Balkh, Mazar-i-Sharif</p>
+    <div class="social-icons">
+      <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/93765875701" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>Zahira Rajabi</h3><p>Thank you for visiting my portfolio.</p>
+  <div class="footer-links"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div>
+  <p class="copyright">© <span id="year"></span> Zahira Rajabi. All rights reserved.</p>
+</footer>
+<button id="back-top" aria-label="Back to top" title="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+// Prevent selecting/copying page content.
+document.addEventListener('selectstart', event => event.preventDefault());
+document.addEventListener('copy', event => event.preventDefault());
+document.addEventListener('cut', event => event.preventDefault());
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('keydown', event => {
+  if ((event.ctrlKey || event.metaKey) && ['a','c','x'].includes(event.key.toLowerCase())) {
+    event.preventDefault();
+  }
+});
+
+// 1. Dark mode: remember the visitor's choice in this browser.
+const themeToggle = document.getElementById('theme-toggle');
+const savedTheme = localStorage.getItem('portfolio-theme');
+if (savedTheme === 'dark') document.body.classList.add('dark');
+updateThemeIcon();
+
+themeToggle.addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+  localStorage.setItem('portfolio-theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+  updateThemeIcon();
+});
+function updateThemeIcon() {
+  themeToggle.innerHTML = document.body.classList.contains('dark')
+    ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+}
+
+// 2. Mobile navigation.
+const menuToggle = document.getElementById('menu-toggle');
+const navMenu = document.getElementById('nav-menu');
+menuToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+  menuToggle.classList.toggle('open');
+  menuToggle.innerHTML = navMenu.classList.contains('open')
+    ? '<i class="fas fa-xmark"></i>' : '<i class="fas fa-bars"></i>';
+});
+document.querySelectorAll('#nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+    menuToggle.classList.remove('open');
+    menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+  });
+});
+
+// 3. Simple rotating role text.
+const roles = ['Web Design Student', 'Frontend Learner', 'Future Developer'];
+let roleIndex = 0;
+const roleElement = document.getElementById('typed-role');
+setInterval(() => {
+  roleIndex = (roleIndex + 1) % roles.length;
+  roleElement.textContent = roles[roleIndex];
+}, 2500);
+
+// 4. Filter projects by category.
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(item => item.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    projectCards.forEach(card => {
+      card.hidden = filter !== 'all' && card.dataset.category !== filter;
+    });
+  });
+});
+
+// 5. Validate contact form. A mail app opens; this page does not send mail by itself.
+const contactForm = document.getElementById('contact-form');
+contactForm.addEventListener('submit', event => {
+  event.preventDefault();
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const message = document.getElementById('message').value.trim();
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  document.getElementById('name-error').textContent = name ? '' : 'Please enter your name.';
+  document.getElementById('email-error').textContent = emailPattern.test(email) ? '' : 'Please enter a valid email address.';
+  document.getElementById('message-error').textContent = message.length >= 10 ? '' : 'Your message must contain at least 10 characters.';
+  const status = document.getElementById('form-status');
+  if (!name || !emailPattern.test(email) || message.length < 10) {
+    status.style.color = '#ef4444';
+    status.textContent = 'Please correct the highlighted fields.';
+    return;
+  }
+  const subject = encodeURIComponent('Portfolio message from ' + name);
+  const body = encodeURIComponent('From: ' + name + '\nEmail: ' + email + '\n\n' + message);
+  status.style.color = 'var(--primary)';
+  status.textContent = 'Your email app will open with your message. Please press Send there.';
+  window.location.href = `mailto:${document.getElementById('email-address').textContent}?subject=${subject}&body=${body}`;
+});
+
+// 6. Copy email address.
+document.getElementById('copy-email').addEventListener('click', async () => {
+  const email = document.getElementById('email-address').textContent;
+  const status = document.getElementById('form-status');
+  try {
+    await navigator.clipboard.writeText(email);
+    status.style.color = 'var(--primary)';
+    status.textContent = 'Email address copied!';
+  } catch {
+    status.style.color = '#ef4444';
+    status.textContent = 'Copy is not available in this browser. Please select the email manually.';
+  }
+});
+
+// 7. Back-to-top button.
+const backTop = document.getElementById('back-top');
+window.addEventListener('scroll', () => {
+  backTop.classList.toggle('show', window.scrollY > 350);
+});
+backTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+
+// 8. Current year.
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// 9. Highlight the navigation link for the section currently in view.
+const sections = document.querySelectorAll('body section[id]');
+const navLinks = document.querySelectorAll('#nav-menu a');
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+      });
+    }
+  });
+}, {rootMargin: '-35% 0px -55% 0px'});
+sections.forEach(section => sectionObserver.observe(section));
+</script>
+</body>
+</html>
